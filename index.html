@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<title> Crystal Collectors Game</title>
+    	<title> Crystal Collector!</title>
+    
+        <link rel="stylesheet" href="assets/css/style.css">
+    
     </head>
+
     <body>
         <div id="game">
             <p>CrystalsCollector</p>
-            <p id="wins">Wins: 0</p>
-            <p id="losses">Losses: 0</p>
-            <p id="userGuesses">User Guesses:</p>
+           <p> Target Number </p>
+            <p id="targetnumber"> Target Number: </p>
+            <div>
+                <p>Wins: <span id="wins"></span></p>
+                <p> Losses: <span id="losses"></span></p>
+            </div>
+            <div id ="crystals"></div>
+            
+            <p> Total Score: </p>
+            <p id="totalscore"></p>
         </div>
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src= "assets/javascript/game.js"> </script>
+
     </body>
 </html>
+
+<!-- id is invisble
+ -->
+<!-- span lets you be more specific of what you are selecting 
