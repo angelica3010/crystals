@@ -55,7 +55,6 @@
 //make a function to restart the game. 
 //Even though you made the variables above, you still have to remake the variables because you have to get new values 
 //each time, it overrides the last input
-//make the same formulas below to make the functoin work?? 
 //function always has ()
 
 function restart () {
@@ -67,12 +66,12 @@ function restart () {
 	randomCrystalValuegreen = Math.floor(Math.random() * 12)+1;
 
 //$ means Jquery. For example, when you pay for something you have to wrap it in cash and pay for some
-//use Jquery to selec items from your html file.
+//use Jquery to select items from your html file.
 //.text() method returns the value of text --ex: you have a sandwich and this returns the inside of hte sandwich,
 //which is the meat. You created a random value and .text sets up the elemenet set the text, you are selecting 
 //a target,which is a tag and an id in this situaton
 //# is id, and . is class
-//hte point is the function you want the computer to restart to play differnet sessions 
+//the point is the function you want the computer to restart to play different sessions 
 
 
     $('#targetnumber').text(randomDisplayValue);
@@ -93,10 +92,10 @@ function restart () {
 //you are making this go 4 times and you are assigning an image tag.
 //console.log (0) =0, 1, 2, 3, 4
 //attributes you either set up a value or return a value
-//data num passes diffrent parameters in teh function. Fore xample, you store 0 as the first number in the loop. Y
-//You are using hte image tag to assign mutliple attributess (datanum, alt, imagecrystal,and the src
+//data num passes diffrent parameters in teh function. For example, you store 0 as the first number in the loop. 
+//You are using the image tag to assign mutliple attributess (datanum, alt, imagecrystal,and the src
 	//you are giving the image crystal tags and image class
-	//quotes are for strings
+	//
 
 
 $('#number').text(randomDisplayValue);
