@@ -1,32 +1,100 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<title> Crystal Collector!</title>
-    
-        <link rel="stylesheet" href="assets/css/style.css">
-    
+        <title> Crystal Collector!</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
     </head>
-
     <body>
-        <div id="game">
-            <p>CrystalsCollector</p>
-           <p> Target Number </p>
-            <p id="targetnumber"> Target Number: </p>
-            <div>
-                <p>Wins: <span id="wins"></span></p>
-                <p> Losses: <span id="losses"></span></p>
+        <div class="container">
+            <div class="jumbotron">
+                <div id="game">
+                    <p>CrystalsCollector</p>
+                </div>
             </div>
-            <div id ="crystals"></div>
             
-            <p> Total Score: </p>
-            <p id="totalscore"></p>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <p class="panel-title text-center">Wins: </p>
+                            <div class="panel-body">
+                                <h3 class="text-center" id="wins"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <p class="panel-title text-center">Losses: </p>
+                            <div class="panel-body">
+                                <h3 class="text-center" id="losses"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- make this its own page. This is the crystal icons -->
+            <!--  <div id ="crystals"></div>
+            -->    <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">Crystals</h3>
+                        </div>
+                        <div class="panel-body text-center">
+                            <img src="assets/images/blue.png" alt="blue" id="blue">
+                            <img src="assets/images/green.png" alt="green" id="green">
+                            <img src="assets/images/red.png" alt="red" id="red">
+                            <img src="assets/images/yellow.png" alt="yellow" id="yellow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+                <!-- Win Count -->
+                <div class="col-lg-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">Target Score</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h3 class="text-center" id="targetScore"></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Loss Count -->
+                <div class="col-lg-6">
+                    
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">Your Score</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h3 class="text-center" id="yourScore"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- make this 6 each
+        <!-     <div class="panel-heading">
+            <p> Target Number </p>
+            <p id="targetScore"> Target Number: </p>
+            <div>
+                <p> Total Score: </p>
+                <p id="yourScore"></p>
+            </div>
+        </div> --> --
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
         <script type="text/javascript" src= "assets/javascript/game.js"> </script>
-
+        
     </body>
 </html>
-
 <!-- id is invisble
- -->
-<!-- span lets you be more specific of what you are selecting 
+-->
+<!-- span lets you be more specific of what you are selecting

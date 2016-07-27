@@ -1,47 +1,31 @@
-//console.log("here") use this as a double check to make sure your html works
 
-
-
-
-// This is a guessing game using numbers, similar to the game hangman, but instead of letters the player will guess with numbers. There will be four crystals displayed as buttons on the page.
-
-
-
-// The player will be shown a random number at the start of the game.
-	//This function returns a random value from 19 - 120 
-
-	var randomDisplayValue = Math.floor(Math.random() * (120 - 19 + 1))+ 19;
+var randomDisplayValue = Math.floor(Math.random() * (120 - 19 + 1))+ 19;
 	
-//make variables for the random values 1-12 for the crystal images
-	var randomCrystalValuered = Math.floor(Math.random() * 12)+1;
-	var randomCrystalValueblue = Math.floor(Math.random() * 12)+1;
-	var randomCrystalValueyellow = Math.floor(Math.random() * 12)+1;
-	var randomCrystalValuegreen = Math.floor(Math.random() * 12)+1
+var randomCrystalValuered = Math.floor(Math.random() * 12)+1;
+var randomCrystalValueblue = Math.floor(Math.random() * 12)+1;
+var randomCrystalValueyellow = Math.floor(Math.random() * 12)+1;
+var randomCrystalValuegreen = Math.floor(Math.random() * 12)+1
 	
-//set up the variables for the total score, wins and losses. Set up the total score, wins and losses to 0. For the number below you already made 
-//reference to the variables above
-//for the crystals you are making an array where you have classifications for
-//the name, image ( for the image you added the item location) and number ( you set up the random variable above)
-//{}--object. An object holds information (ex: API, JSON)
-//[]-arrays are list, best way to organize objects
 
-	var totalscore=0
-	var wins = 0;
-	var losses = 0;
-	var crystals = [{
-                name: "redcrystal",
-                image: "assets/images/red.png",
-                number:randomCrystalValuered
-            },
-		{
-                name: "bluecrystal",
-                image: "assets/images/blue.png",
-                number:randomCrystalValueblue
-            },
+var randomDisplayValue = 0;
+var currentScore = 0;
+var wins = 0;
+var losses = 0;
+var crystals = [{
+    name: "redcrystal",
+    image: "assets/images/red.png",
+	number:randomCrystalValuered
+    },
+	{
+    name: "bluecrystal",
+    image: "assets/images/blue.png",
+    number:randomCrystalValueblue
+     },
 		
-              {  name: "yellowcrystal",
-                image: "assets/images/yellow.png",
-                number:randomCrystalValueyellow
+    {  
+    name: "yellowcrystal",
+	image: "assets/images/yellow.png",
+    number:randomCrystalValueyellow
             },
  {
                 name: "greencrystal",
@@ -52,14 +36,10 @@
 
 	]
 
-//make a function to restart the game. 
-//Even though you made the variables above, you still have to remake the variables because you have to get new values 
-//each time, it overrides the last input
-//make the same formulas below to make the functoin work?? 
-//function always has ()
+
 
 function restart () {
-	totalscore=0
+	currentScore = 0;
 	randomDisplayValue = Math.floor(Math.random() * (120 - 19 + 1))+ 19;
 	randomCrystalValuered = Math.floor(Math.random() * 12)+1;
 	randomCrystalValueblue = Math.floor(Math.random() * 12)+1;
@@ -75,31 +55,17 @@ function restart () {
 //hte point is the function you want the computer to restart to play differnet sessions 
 
 
-    $('#targetnumber').text(randomDisplayValue);
-	$('#totalscore').text(totalscore)
+    $('#randomDisplayValue').html(randomDisplayValue);
+	$('#yourScore').html(currentScore);
+
+
+	console.log("Target Score: " + randomDisplayValue);
 
 
 }
 
-//display the Random Target Number. Is this row necessary 
-//becuase you have it in the function above?
 
-    // $('#targetnumber').text(randomDisplayValue);
-
-//make a for loop to append the image of the crystal each
-//time the game is played. Set up attributes for the data
-//to make sure it is assigned and stored to an image
-
-//you are making this go 4 times and you are assigning an image tag.
-//console.log (0) =0, 1, 2, 3, 4
-//attributes you either set up a value or return a value
-//data num passes diffrent parameters in teh function. Fore xample, you store 0 as the first number in the loop. Y
-//You are using hte image tag to assign mutliple attributess (datanum, alt, imagecrystal,and the src
-	//you are giving the image crystal tags and image class
-	//quotes are for strings
-
-
-$('#number').text(randomDisplayValue);
+$('#number').html(crystals);
     for (var i=0; i<4; i++){      
     	var imageCrystal = $('<img>');
     	console.log(i)
@@ -107,80 +73,57 @@ $('#number').text(randomDisplayValue);
     	imageCrystal.attr('data-num',i);
     	imageCrystal.attr('alt', 'crystals');
     	imageCrystal.addClass('imageCrystal');
-
-    	//for this attribute you are passing in teh crystal image array from above, and this woudl be the seccond
-    	//item in the item in.  Src links teo the folder path. Its telling you to go find the specicific
-    	//item in teh file path. DYnamically creatign images taht have attributes (dynimically creating images
-    		//for the crystals and telling hte commputer wehre to find it)
     	imageCrystal.attr('src', crystals[i].image) 
-
-//you are literally puting hte tags on teh div, before the div was empty, and now its an image tags
     	$('#crystals').append(imageCrystal);
+   
+   console.log("This is hte image crystal" +image)
+
     }
+  
+// $('.imageCrystal').on('click', function(){
+
+var positionNumber = $(this).data('num');
+
+console.log( "This is the positon Number" + positionNumber)
+
+// yourScore = yourScore + crystals[positionNumber].number; 
+
+// $('#yourScore').html(yourScore);
+
+// })
+
+// if (randomDisplayValue == yourScore){
+
+// 	wins = wins+1
+
+// 	$('#wins').html(wins)
+
+// 	restart();
 
 
-//	counter = counter + parseInt($(this).data-num);
-//alert('hello') make an alert on console.log to test the  click function. 
-//Console log is seeing what is behind the scenes, console log tests the variable
+// }
+// else if (yourScore > randomDisplayValue){
+// 	losses=losses+1
 
-   //you selected a tag and it is an event listener, so it listened to an on click event, and then 
-   //it pefofrmed a call function (which is a click funciton in this case)    
-$('.imageCrystal').on('click', function(){
+// 	$('#losses').html(losses)
 
+// 	restart();
 
-//?? I'm getting lost here. Can you please exoplain this to me????
-//This is just this, its very intitutive. This is pointing to a particular item
-//This is shwoing the position, lets the user determineds the values at hte particular time
-//console.log(crystals[positionNumber].number)
-//to test to see what randomnumber in the crystal
-//this points to whatever you are clicking on. 
-//this is this specific item that it is referring to. For example, this is this number at this specific time.
-var positionNumber = $(this).data('num')
+// }
+// // })
 
 
-//make the total score based on the crystal position number. This adds up the
-//numbers the crystals are assigned to based on the random function
-totalscore = totalscore + crystals[positionNumber].number 
+// //$ is saying to find whats in teh parenhethis which is your yourScore and the .text is to display the total score
 
-//jquery replaces the html  becuase jquery cannot opperate alone, it needs html to work. In this case the html totalscore 
-//is getting replaced by the jqery variable above
-$('#totalscore').text(totalscore)
+// //if you are trying to access a specific an itmem in array, and you need to find the index of hte positon
 
-//make the else and else if statemenets. The win if section takes into
-//cosnsideratoin
-
-if (randomDisplayValue == totalscore){
-
-	wins = wins+1
-
-	$('#wins').text(wins)
-
-	restart()
-
-
-}
-else if (totalscore > randomDisplayValue){
-	losses=losses+1
-
-	$('#losses').text(losses)
-
-	restart()
-
-}
-
-
-
-//$ is saying to find whats in teh parenhethis which is your totalscore and the .text is to display the total score
-
-//if you are trying to access a specific an itmem in array, and you need to find the index of hte positon
-
-//	 $('#yourNumber').text(counter);
-  //    if (counter == randomDisplayValue){
-    //    alert('You won!!!!');
-      //}else if( counter > randomDisplayValue){
-        //alert('You lost!');
-     // }
-  })
+// 	 $('#yourScore').html(yourScore);
+//      if (yourScore == randomDisplayValue){
+//        alert('You won!!!!');
+//       }else if( yourScore > randomDisplayValue){
+//         alert('You lost!');
+//      }
+  
 
 //Create Random Function that is going to make random numbers and the reset the game
 
